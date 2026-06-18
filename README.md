@@ -1,250 +1,149 @@
-# 📊 Customer Churn Prediction Using Machine Learning
+Customer Churn Analysis and Prediction
 
-## 🚀 Project Overview
+📌 Project Overview
 
-Customer churn prediction helps businesses identify customers who are likely to discontinue their services. In this project, various Machine Learning algorithms are implemented to predict customer churn using customer-related features such as tenure and monthly charges.
+Customer churn is a critical challenge in the telecom industry, directly impacting revenue and customer lifetime value. This project focuses on analyzing customer behavior and predicting churn using data-driven techniques and machine learning models.
 
-The project involves data preprocessing, exploratory data analysis (EDA), visualization, model building, and performance evaluation using multiple classification techniques.
-
----
-
-## 🎯 Objectives
-
-* Analyze customer churn behavior.
-* Perform data cleaning and preprocessing.
-* Visualize customer data using graphs and plots.
-* Build predictive machine learning models.
-* Compare the performance of different classification algorithms.
+The project leverages the Telecom Customer Churn dataset to uncover key patterns and build predictive models that help identify customers at risk of leaving.
 
 ---
 
-## 📂 Dataset Information
+🎯 Objectives
 
-The dataset contains telecom customer information including:
-
-* CustomerID
-* Gender
-* Senior Citizen
-* Partner
-* Dependents
-* Tenure
-* Phone Service
-* Internet Service
-* Contract
-* Payment Method
-* Monthly Charges
-* Total Charges
-* Churn
-
-### Target Variable
-
-| Value | Meaning           |
-| ----- | ----------------- |
-| Yes   | Customer Churned  |
-| No    | Customer Retained |
+- Analyze customer demographics and service usage patterns.
+- Perform exploratory data analysis (EDA) to identify churn drivers.
+- Visualize trends influencing customer retention.
+- Build and evaluate machine learning models for churn prediction.
+- Compare model performance and identify the most effective approach.
 
 ---
 
-## 🛠️ Technologies Used
+🛠️ Technologies Used
 
-* Python
-* Pandas
-* NumPy
-* Matplotlib
-* Seaborn
-* Scikit-Learn
-* Jupyter Notebook
-
----
-
-## 📈 Exploratory Data Analysis (EDA)
-
-Several visualizations were created to understand customer behavior:
-
-### Histogram
-
-Used to analyze feature distributions.
-
-### Box Plot
-
-Used to identify outliers and compare customer groups.
-
-### Churn Distribution Analysis
-
-Understanding the balance between churned and retained customers.
+- Python
+- Pandas
+- NumPy
+- Matplotlib
+- Seaborn
+- Scikit-Learn
+- Jupyter Notebook
 
 ---
 
-## ⚙️ Data Preprocessing
+📂 Dataset Information
 
-The following preprocessing steps were performed:
+The dataset includes key customer attributes such as:
 
-* Handling missing values
-* Data cleaning
-* Feature selection
-* Label encoding of categorical variables
-* Train-Test Split
+- Gender
+- Senior Citizen Status
+- Tenure
+- Monthly Charges
+- Contract Type
+- Payment Method
+- Internet Service
+- Churn Status
 
----
-
-## 🤖 Machine Learning Models Implemented
-
-### 1. Logistic Regression
-
-Built a simple Logistic Regression model where:
-
-* Dependent Variable: Churn
-* Independent Variable: MonthlyCharges
-
-#### Steps
-
-* Dataset split into 65:35 ratio
-* Model trained on training data
-* Predictions generated on testing data
-* Accuracy evaluated
+Target Variable:
+Churn (Yes / No)
 
 ---
 
-### 2. Multiple Logistic Regression
+📊 Data Manipulation & EDA
 
-Built a Multiple Logistic Regression model where:
-
-* Dependent Variable: Churn
-* Independent Variables:
-
-  * Tenure
-  * MonthlyCharges
-
-#### Steps
-
-* Dataset split into 80:20 ratio
-* Model trained and tested
-* Predictions evaluated
+- Filtered high-risk customer segments (e.g., senior citizens with electronic payments).
+- Analyzed customer tenure and spending behavior.
+- Identified churn-prone groups such as:
+  - Short tenure customers
+  - Month-to-month contract users
+  - High monthly charge customers
+- Created random samples and performed categorical distribution analysis.
 
 ---
 
-### 3. Decision Tree Classifier
+📈 Data Visualization Insights
 
-Built a Decision Tree model where:
-
-* Dependent Variable: Churn
-* Independent Variable: Tenure
-
-#### Steps
-
-* Dataset split into 80:20 ratio
-* Model training
-* Prediction generation
-* Accuracy calculation
+- Internet Service Distribution: Fiber users showed higher churn tendency.
+- Tenure Analysis: Customers with low tenure had significantly higher churn rates.
+- Monthly Charges vs Tenure: High-paying new customers were more likely to churn.
+- Contract Type Analysis: Long-term contracts (2-year) had the lowest churn rates.
 
 ---
 
-### 4. Random Forest Classifier
+🤖 Machine Learning Models
 
-Built a Random Forest model where:
+🔹 Linear Regression
 
-* Dependent Variable: Churn
-* Independent Variables:
-
-  * Tenure
-  * MonthlyCharges
-
-#### Steps
-
-* Dataset split into 70:30 ratio
-* Forest model training
-* Prediction generation
-* Model evaluation
+- Predicted Monthly Charges using Tenure.
+- Evaluated using RMSE.
+- Showed moderate correlation between tenure and charges.
 
 ---
 
-## 📊 Model Evaluation
+🔹 Logistic Regression
 
-The models were evaluated using:
+Simple Model:
 
-* Accuracy Score
-* Confusion Matrix
-* Classification Metrics
-* Prediction Results
+- Input: Monthly Charges
+- Output: Churn
+- Achieved moderate accuracy, indicating pricing impacts churn.
 
----
+Multiple Model:
 
-## 🔍 Key Insights
-
-* Monthly charges significantly impact churn probability.
-* Customers with longer tenure are less likely to churn.
-* Combining tenure and monthly charges improves prediction capability.
-* Ensemble methods like Random Forest provide robust classification performance.
+- Inputs: Tenure + Monthly Charges
+- Improved prediction performance compared to single-variable model.
 
 ---
 
-## 📁 Project Structure
+🔹 Decision Tree Classifier
 
-```text
-CUSTOMER-CHURN-PREDICTION-USING-MACHINE-LEARNING/
-│
-├── Customer_Churn_Prediction.ipynb
-├── customer_churn.csv
-├── README.md
-└── requirements.txt
-```
+- Captured non-linear relationships in churn behavior.
+- Provided interpretable decision rules.
+- Performance improved over logistic regression for classification.
 
 ---
 
-## ▶️ Installation
+🔹 Random Forest Classifier ⭐
 
-### Clone Repository
-
-```bash
-git clone https://github.com/SOURAV143-BIT/CUSTOMER-CHURN-PREDICTION-USING-MACHINE-LEARNING.git
-```
-
-### Navigate to Project Folder
-
-```bash
-cd CUSTOMER-CHURN-PREDICTION-USING-MACHINE-LEARNING
-```
-
-### Install Required Libraries
-
-```bash
-pip install pandas numpy matplotlib seaborn scikit-learn
-```
-
-### Run Jupyter Notebook
-
-```bash
-jupyter notebook
-```
+- Best performing model.
+- Higher accuracy and better generalization.
+- Reduced overfitting compared to decision tree.
 
 ---
 
-## 📷 Project Outputs
+📌 Results & Key Findings
 
-The notebook includes:
-
-* Histograms
-* Boxplots
-* Customer Churn Analysis
-* Logistic Regression Results
-* Multiple Logistic Regression Results
-* Decision Tree Results
-* Random Forest Results
-* Accuracy Comparisons
+- Customers with short tenure and high monthly charges are more likely to churn.
+- Contract type is a major factor — long-term contracts reduce churn significantly.
+- Random Forest model achieved the highest accuracy, making it the most reliable for prediction.
+- Ensemble methods outperformed basic regression models in classification tasks.
 
 ---
 
+🚀 Future Improvements
 
-## 💡 Conclusion
-
-This project demonstrates how Machine Learning algorithms can be used to predict customer churn effectively. By leveraging customer tenure and monthly charges, businesses can identify high-risk customers and take proactive retention measures to reduce customer loss.
+- Feature Engineering (customer behavior scoring)
+- Hyperparameter tuning (GridSearchCV)
+- Cross-validation for robust evaluation
+- Advanced models like XGBoost & LightGBM
+- Dashboard development using Power BI / Tableau
+- Customer retention recommendation system
 
 ---
 
-## 👩‍💻 Author
+📷 Project Workflow
 
-**Sourabh**
+1. Data Collection
+2. Data Cleaning
+3. Data Manipulation
+4. Exploratory Data Analysis
+5. Data Visualization
+6. Model Building
+7. Model Evaluation
+8. Churn Prediction
 
-Aspiring Data Scientist | Machine Learning Enthusiast
+---
 
-GitHub: https://github.com/SOURAV143-BIT
+👨‍💻 Author
+
+Sourabh 
+BCA STUDENT |  Aspiring Data Scientist | 
